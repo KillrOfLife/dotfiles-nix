@@ -4,12 +4,12 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     initrd.availableKernelModules = [ "ata_piix" "vmw_pvscsi" "uhci_hcd" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
     initrd.kernelModules = [ ];
-    kernelModules = [ ];
+    kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
 

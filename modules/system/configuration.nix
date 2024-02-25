@@ -7,7 +7,6 @@
 {
   # Remove unecessary preinstalled packages
   environment.defaultPackages = [ ];
-  services.xserver.desktopManager.gnome.enable = false;
   services.xserver.desktopManager.xterm.enable = false;
 
   programs.zsh.enable = true;
@@ -50,7 +49,7 @@
       settings.auto-optimise-store = true;
       settings.allowed-users = [ "arcana" ];
       gc = {
-          automatic = true;
+          automatic = false;
           dates = "weekly";
           options = "--delete-older-than 7d";
       };
