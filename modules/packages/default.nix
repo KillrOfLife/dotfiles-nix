@@ -21,6 +21,7 @@ in {
             mpv firefox pqiv
             screen bandw maintenance
             wf-recorder anki-bin 
+            nano
         ];
     };
 }
