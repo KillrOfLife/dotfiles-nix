@@ -19,7 +19,7 @@
 
   # Install fonts
   fonts = {
-      fonts = with pkgs; [
+      packages = with pkgs; [
           jetbrains-mono
           roboto
           openmoji-color
@@ -42,14 +42,13 @@
               xdg-desktop-portal-wlr
               xdg-desktop-portal-gtk
           ];
-          gtkUsePortal = true;
       };
   };
 
   # Nix settings, auto cleanup and enable flakes
   nix = {
       settings.auto-optimise-store = true;
-      settings.allowed-users = [ "notus" ];
+      settings.allowed-users = [ "arcana" ];
       gc = {
           automatic = true;
           dates = "weekly";
@@ -63,7 +62,7 @@
   };
 
   boot = {
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
     loader = {
       systemd-boot.enable = true;
       systemd-boot.editor = false;
@@ -78,7 +77,7 @@
   console = {
     font = "Lat2-erminus16";
     keyMap = "us";
-  }
+  };
 
   # Set up user and enable sudo
   users.users.arcana = {
@@ -90,6 +89,9 @@
       # warp-terminal
       #  thunderbird
     ];
+    openssh.authorizedKeys.keys = [ 
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG5BRKIFhkbNDgELm/iTP8QHcanlsVNo+RlE3pRDRwDA arcana@Revision-PC-AMD"
+    ]
   };
 
   networking = {
@@ -101,7 +103,7 @@
       enable = true;
       allowedTCPPorts = [22 80 443];
       allowedUDPPorts = [22 80 443];
-      allowPing = True;
+      allowPing = true;
     };
   };
 
@@ -148,8 +150,6 @@
       };
   };
 
-
-  networking.hostName = "nixos"; # Define your hostname.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

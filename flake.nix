@@ -2,7 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-stable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nix-colors.url = "github:misterio77/nix-colors";
     sops-nix.url = "github:mic92/sops-nix";
 
@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nur,  ... }@packages:
+  outputs = { self, nixpkgs, home-manager, nur,  ... }@inputs:
   let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
@@ -49,7 +49,7 @@
                         useGlobalPkgs = true;
                         extraSpecialArgs = { inherit inputs; };
                         # Home manager config (configures programs like firefox, zsh, eww, etc)
-                        users.notus = (./. + "/hosts/${hostname}/user.nix");
+                        users.arcana = (./. + "/hosts/${hostname}/user.nix");
                     };
                     nixpkgs.overlays = [
                         # Add nur overlay for Firefox addons
