@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
+    inputs.hyprland.url = "github:hyprwm/Hyprland";
 
     home-manager = {
       url = github:nix-community/home-manager;

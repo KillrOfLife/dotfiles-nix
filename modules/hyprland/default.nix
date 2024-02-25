@@ -11,6 +11,7 @@ in {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
+    
 	home.packages = with pkgs; [
 	    wofi swaybg wlsunset wl-clipboard hyprland
 	];
