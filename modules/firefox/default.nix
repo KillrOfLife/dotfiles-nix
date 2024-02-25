@@ -11,11 +11,7 @@ in {
             enable = true;
 
             # Install extensions from NUR
-            
-
-            # Privacy about:config settings
-            profiles.arcana = {
-                extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            extensions = with pkgs.nur.repos.rycee.firefox-addons; [
                 decentraleyes
                 ublock-origin
                 clearurls
@@ -23,7 +19,10 @@ in {
                 darkreader
                 h264ify
                 df-youtube
-                ];
+            ];
+
+            # Privacy about:config settings
+            profiles.arcana = {
                 settings = {
                     "browser.send_pings" = false;
                     "browser.urlbar.speculativeConnect.enabled" = false;

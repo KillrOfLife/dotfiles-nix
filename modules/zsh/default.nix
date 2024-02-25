@@ -17,9 +17,7 @@ in {
 
             enableCompletion = true;
             enableAutosuggestions = true;
-            syntaxHighlighting = {
-                enable = true;
-            };
+            enableSyntaxHighlighting = true;
 
             # .zshrc
             initExtra = ''
@@ -58,8 +56,8 @@ in {
                 mv = "mv -iv";
                 cp = "cp -riv";
                 cat = "bat --paging=never --style=plain";
-                ls = "eza -a --icons";
-                tree = "eza --tree --icons";
+                ls = "exa -a --icons";
+                tree = "exa --tree --icons";
                 nd = "nix develop -c $SHELL";
                 rebuild = "doas nixos-rebuild switch --flake $NIXOS_CONFIG_DIR --fast; notify-send 'Rebuild complete\!'";
             };

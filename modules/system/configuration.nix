@@ -19,7 +19,7 @@
 
   # Install fonts
   fonts = {
-      packages = with pkgs; [
+      fonts = with pkgs; [
           jetbrains-mono
           roboto
           openmoji-color
