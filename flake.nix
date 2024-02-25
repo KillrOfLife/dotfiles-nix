@@ -17,7 +17,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nur,  ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nur, hyprland,  ... }@inputs:
   let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
