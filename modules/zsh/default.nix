@@ -17,7 +17,7 @@ in {
 
             enableCompletion = true;
             enableAutosuggestions = true;
-            SyntaxHighlighting = {
+            syntaxHighlighting = {
                 enable = true;
             };
 

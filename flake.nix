@@ -2,7 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
     sops-nix.url = "github:mic92/sops-nix";
 
@@ -66,8 +66,9 @@
     nixosConfigurations = {
         # Now, defining a new system is can be done in one line
         #                                Architecture   Hostname
-        VM = mkSystem inputs.nixpkgs "x86_64-linux" "VM";
+        nixos = mkSystem inputs.nixpkgs "x86_64-linux" "nixos";
         #desktop = mkSystem inputs.nixpkgs "x86_64-linux" "desktop";
+
     };
   };
 }

@@ -62,7 +62,7 @@
   };
 
   boot = {
-    tmp.cleanOnBoot = true;
+    cleanTmpDir = true;
     loader = {
       systemd-boot.enable = true;
       systemd-boot.editor = false;
@@ -91,7 +91,7 @@
     ];
     openssh.authorizedKeys.keys = [ 
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG5BRKIFhkbNDgELm/iTP8QHcanlsVNo+RlE3pRDRwDA arcana@Revision-PC-AMD"
-    ]
+    ];
   };
 
   networking = {
