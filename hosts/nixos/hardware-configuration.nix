@@ -9,7 +9,7 @@
   boot = {
     initrd.availableKernelModules = [ "ata_piix" "vmw_pvscsi" "uhci_hcd" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
     initrd.kernelModules = [ ];
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [ ];
     extraModulePackages = [ ];
   };
 

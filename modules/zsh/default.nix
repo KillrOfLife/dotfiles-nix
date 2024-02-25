@@ -59,7 +59,7 @@ in {
                 ls = "exa -a --icons";
                 tree = "exa --tree --icons";
                 nd = "nix develop -c $SHELL";
-                rebuild = "doas nixos-rebuild switch --flake $NIXOS_CONFIG_DIR --fast; notify-send 'Rebuild complete\!'";
+                rebuild = "sudo nixos-rebuild switch --flake $NIXOS_CONFIG_DIR --fast; notify-send 'Rebuild complete\!'";
             };
 
             # Source all plugins, nix-style
