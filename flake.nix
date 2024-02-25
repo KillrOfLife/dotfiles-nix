@@ -32,6 +32,7 @@
         pkgs.lib.nixosSystem {
             system = system;
             modules = [
+                hyprland.nixosModules.default
                 { networking.hostName = hostname; }
                 # General configuration (users, networking, sound, etc)
                 ./modules/system/configuration.nix
