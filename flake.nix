@@ -7,8 +7,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    disko.url = "github:nix-community/disko";
-    # sops-nix.url = "github:mic92/sops-nix";
+   # sops-nix.url = "github:mic92/sops-nix";
 
 
 
