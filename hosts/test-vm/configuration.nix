@@ -5,7 +5,6 @@
 { config, pkgs, ... }: {
   imports = [ 
     ./hardware-configuration.nix
-    ./disks.nix
   ];
 
   # Set your time zone.
