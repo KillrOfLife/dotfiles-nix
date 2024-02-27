@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -29,6 +30,9 @@
           nixpkgs.lib.nixosSystem {
               system = system;
               modules = [
+
+                  hyprland.nixosModules.default
+
                   { networking.hostName = hostname; }
                   (./. + "/hosts/${hostname}/configuration.nix")
 
@@ -51,6 +55,7 @@
         # Now, defining a new system is can be done in one line
         #                                Architecture   Hostname
         test-vm = mkSystem inputs.nixpkgs "x86_64-linux" "test-vm";
+        nix-tc = mkSystem inputs.nixpkgs "x86_64-linux" "nix-tc" ;
 
         # nixos = mkSystem inputs.nixpkgs "x86_64-linux" "nixos";
         # desktop = mkSystem inputs.nixpkgs "x86_64-linux" "desktop";
