@@ -1,5 +1,7 @@
 # ❄️ NixOS dotfiles
 
+sudo nixos-rebuild switch --flake .config/nixos#nix-tc --upgrade --install-bootloader
+
 *My configuration files for NixOS. Feel free to look around and copy!* 
 
 # Special thanks to:

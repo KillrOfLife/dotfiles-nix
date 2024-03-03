@@ -5,113 +5,21 @@
 { config, pkgs, ... }: {
   imports = [ 
     ./hardware-configuration.nix
+    ../../nixos
+    ../../users
   ];
 
-  # Set your time zone.
-  time.timeZone = "Europe/Brussels";
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-      packages = [pkgs.terminus_font];
-      font = "${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
-      useXkbConfig = true;
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.arcana = {
-    isNormalUser = true;
-    description = "arcana";
-    extraGroups = [
-      "networkmanager" 
-      "wheel"
-      "docker"
-    ];
-    openssh.authorizedKeys.keys = [ 
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG5BRKIFhkbNDgELm/iTP8QHcanlsVNo+RlE3pRDRwDA arcana@Revision-PC-AMD"
-    ];
-  };
-
-  # Globaly enabled programs  
-  programs.zsh.enable = true;
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-      acpi tlp git wget vim
-  ];
-
-  # Install fonts
-  fonts = {
-      packages = with pkgs; [
-          noto-fonts
-          noto-fonts-cjk
-          noto-fonts-emoji
-          font-awesome
-          source-han-sans
-          source-han-sans-japanese
-          source-han-serif-japanese
-          (nerdfonts.override {fonts = ["Meslo"];})
-      ];
-      fontconfig = {
-          enable = true;
-          defaultFonts = {
-              monospace = ["Meslo LG M Regular Nerd Font Complete Mono"];
-              serif = ["Noto Serif" "Source Han Serif"];
-              sansSerif = ["Noto Sans" "Source Han Sans"];
-          };
-      };
-  };
-
-  # Nix settings, auto cleanup and enable flakes
-  documentation.nixos.enable = false;
-  nix = {
-      settings = {
-          warn-dirty = false;
-          experimental-features = ["nix-command" "flakes"];
-          auto-optimise-store = true;
-          substituters = ["https://nix-gaming.cachix.org"];
-          trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
-          
-      };
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 7d";
-      };
-  };
-
-  nixpkgs = {
-      config = {
-      allowUnfree = true;
-      # allowUnfreePredicate = pkg: builtins.elem (builtins.parseDrvName pkg.name).name ["steam"];
-
-      # permittedInsecurePackages = [
-      #     "openssl-1.1.1v"
-      #     "python-2.7.18.7"
-      # ];
-      };
-  };    
-
-  # Services
-  services = {
-      # flatpak.enable = true;
-      # dbus.enable = true;
-      # picom.enable = true;
-
-      openssh = {
-          enable = true;
-          settings = {
-              X11Forwarding = true;
-          };
-      };
-      printing.enable = false;
-  };
-
-  # Virtualisation
-  virtualisation.docker.enable = true;
+  ## Custom
   virtualisation.vmware.guest.enable = true;
+
+  modules.nixos = {
+    docker.enable = false;
+    login.enable = true;
+    extraSecurity.enable = false;
+    virtualisation.enable = false;
+  };
+
+  ## Default
   
   # Networking
   networking = {
@@ -130,23 +38,6 @@
     #   default = "http://user:password@proxy:port/";
     #   noProxy = "127.0.0.1,localhost,internal.domain";
     # };
-  };
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
-      #jack.enable = true;
-
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
   };
 
   # Bootloader
