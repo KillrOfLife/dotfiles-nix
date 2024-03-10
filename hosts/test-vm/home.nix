@@ -29,7 +29,7 @@
     };
 
     my.settings = {
-      wallpaper = "~/dotfiles/home-manager/wallpapers/Kurzgesagt-Galaxy_3.png";
+      wallpaper = "~/.config/nixos/home-manager/wallpapers/Kurzgesagt-Galaxy_3.png";
       host = "framework";
       default = {
         shell = "${pkgs.fish}/bin/fish";
