@@ -1,18 +1,20 @@
-{pkgs, ...}: {
-  programs.mangohud = {
-    enable = true;
-    enableSessionWide = true;
-    settings = {
-      full = true;
-      no_display = true;
-      cpu_load_change = true;
-    };
-  };
+{pkgs, inputs, lib, config, ...}: {
 
-  home.packages = with pkgs; [
-    lutris
-    cartridges
-    bottles
-    # adwaita-for-steam
-  ];
+programs.mangohud = {
+  enable = true;
+  enableSessionWide = true;
+  settings = {
+    full = true;
+    no_display = true;
+    cpu_load_change = true;
+  };
+};
+
+home.packages = with pkgs; [
+  lutris
+  cartridges
+  bottles
+  adwaita-for-steam
+];
+
 }

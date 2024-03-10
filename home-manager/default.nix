@@ -1,15 +1,7 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  config,
-  outputs,
-  ...
-}: {
+{ inputs, lib, pkgs, config, outputs, ...}: {
   imports =
     [
       inputs.nix-colors.homeManagerModule
-      # inputs.nixvim.homeManagerModules.nixvim
       inputs.nur.hmModules.nur
       # inputs.impermanence.nixosModules.home-manager.impermanence
 
@@ -18,7 +10,7 @@
 
       ./browsers/firefox.nix
 
-      # ./editors/nvim
+      ./editors/vscode.nix
 
       ./multiplexers/tmux.nix
       ./multiplexers/zellij

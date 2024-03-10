@@ -4,43 +4,36 @@
   ...
 }: {
   imports = [
-    ./bat.nix
+    ./theme.nix
     ./bottom.nix
     ./cheat-sheets.nix
     ./direnv.nix
 
-    ./docker.nix
+    # ./docker.nix
     ./eza.nix
     ./fonts.nix
     ./fzf.nix
     ./git.nix
-    ./gpg
-    ./k8s.nix
     ./modern-unix.nix
-    ./kafka.nix
     ./kdeconnect.nix
-    ./modern-unix.nix
     ./yazi.nix
-    ./photos.nix
     ./starship.nix
-    ./spotify.nix
+    # ./spotify.nix
     ./zoxide.nix
   ];
 
   home.packages = with pkgs; [
-    keymapp
     powertop
 
     nix-your-shell
-    src-cli
 
     (lib.hiPrio parallel)
     moreutils
-    nvtop-amd
+    nvtop-intel
     htop
     unzip
     gnupg
 
-    showmethekey
+    # showmethekey
   ];
 }

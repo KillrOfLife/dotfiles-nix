@@ -54,4 +54,13 @@
       };
     };
   };
+
+  console = {
+    earlySetup = true;
+    font = "ter-u28n";
+    packages = with pkgs ;[ 
+      fira-code
+      terminus_font 
+    ];
+  };
 }

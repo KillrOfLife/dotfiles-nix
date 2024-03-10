@@ -1,49 +1,46 @@
 {config, ...}: {
   programs.git = {
     enable = true;
-    userName = "Haseeb Majid";
-    userEmail = "hello@haseebmajid.dev";
+    userName = "KillrOfLife";
+    userEmail = "74971817+KillrOfLife@users.noreply.github.com";
 
-    signing = {
-      signByDefault = true;
-      key = "D528 BD50 F4E9 F031 AACB 1F7A 9833 E49C 848D 6C90";
-    };
 
-    extraConfig = {
-      core = {
-        editor = "nvim";
-        pager = "delta";
-      };
 
-      color = {
-        ui = true;
-      };
+    # extraConfig = {
+    #   core = {
+    #     editor = "nvim";
+    #     pager = "delta";
+    #   };
 
-      interactive = {
-        diffFitler = "delta --color-only";
-      };
+    #   color = {
+    #     ui = true;
+    #   };
 
-      delta = {
-        enable = true;
-        navigate = true;
-        light = false;
-        side-by-side = false;
-        options.syntax-theme = "catppuccin";
-      };
+    #   interactive = {
+    #     diffFitler = "delta --color-only";
+    #   };
 
-      pull = {
-        ff = "only";
-      };
+    #   delta = {
+    #     enable = true;
+    #     navigate = true;
+    #     light = false;
+    #     side-by-side = false;
+    #     options.syntax-theme = "catppuccin";
+    #   };
 
-      push = {
-        default = "current";
-        autoSetupRemote = true;
-      };
+    #   pull = {
+    #     ff = "only";
+    #   };
 
-      init = {
-        defaultBranch = "init";
-      };
-    };
+    #   push = {
+    #     default = "current";
+    #     autoSetupRemote = true;
+    #   };
+
+    #   init = {
+    #     defaultBranch = "main";
+    #   };
+    # };
   };
 
   programs.lazygit = {

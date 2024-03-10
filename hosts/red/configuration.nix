@@ -9,17 +9,15 @@
     ../../users
   ];
 
-  ## Custom
-  virtualisation.vmware.guest.enable = true;
-
   modules.nixos = {
     docker.enable = false;
-    login.enable = true;
+    login.enable = false; #hyrland greeter
     extraSecurity.enable = false;
     virtualisation.enable = false;
   };
 
-  ## Default
+  # Virtualisation
+  # virtualisation.vmware.guest.enable = true;
   
   # Networking
   networking = {
@@ -28,8 +26,8 @@
     
     firewall = {
       enable = true;
-      allowedTCPPorts = [22 80 443];
-      allowedUDPPorts = [22 80 443];
+      allowedTCPPorts = [22];
+      allowedUDPPorts = [22];
       allowPing = true;
     };
 

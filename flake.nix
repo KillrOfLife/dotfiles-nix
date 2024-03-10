@@ -15,6 +15,7 @@
     nwg-displays.url = "github:nwg-piotr/nwg-displays";
     comma.url = "github:nix-community/comma";
     nix-gaming.url = "github:fufexan/nix-gaming";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -28,7 +29,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, nix-flatpak, ... } @inputs: let
+  outputs = { self, nixpkgs, home-manager, hyprland, nix-flatpak, vscode-server, ... } @inputs: let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
     systems = ["x86_64-linux" "aarch64-linux"];
@@ -44,6 +45,7 @@
           modules = [
               hyprland.nixosModules.default
               nix-flatpak.nixosModules.nix-flatpak
+              vscode-server.nixosModules.default
 
               { networking.hostName = hostname; }
               (./. + "/hosts/${hostname}/configuration.nix")
@@ -63,7 +65,7 @@
     #                                Architecture   Hostname
     test-vm = mkSystem inputs.nixpkgs "x86_64-linux" "test-vm";
     nix-tc = mkSystem inputs.nixpkgs "x86_64-linux" "nix-tc" ;
-
+    red = mkSystem inputs.nixpkgs "x86_64-linux" "red" ;
     # nixos = mkSystem inputs.nixpkgs "x86_64-linux" "nixos";
     # desktop = mkSystem inputs.nixpkgs "x86_64-linux" "desktop";
     # VM = mkSystem inputs.nixpkgs "x86_64-linux" "VM";

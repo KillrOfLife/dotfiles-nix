@@ -11,13 +11,13 @@
       ./openssh.nix
       ./pam.nix
       ./sops.nix
-      ./rdp.nix
 
       ./optional/auto-upgrade.nix
       ./optional/docker.nix
       ./optional/hardening.nix
       ./optional/greetd.nix
       ./optional/virtualisation.nix
+      ./optional/gaming.nix
     ] ++ (builtins.attrValues outputs.nixosModules);
 
 
@@ -30,7 +30,11 @@
     udisks2.enable = true;
     fwupd.enable = true;
     dbus.packages = [pkgs.gcr];
+    vscode-server.enable = true;
+    kmscon.enable = true;
   };
+
+  programs.nix-ld.enable = true;
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;

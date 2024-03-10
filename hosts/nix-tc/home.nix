@@ -29,8 +29,8 @@
     };
 
     my.settings = {
-      wallpaper = "~/.config/nixos/home-manager/wallpapers/Kurzgesagt-Galaxy_3.png";
-      host = "framework";
+      wallpaper = "~/dotfiles/home-manager/wallpapers/Kurzgesagt-Galaxy_3.png";
+      host = "nix-tc";
       default = {
         shell = "${pkgs.fish}/bin/fish";
         terminal = "wezterm";
